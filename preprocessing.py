@@ -37,7 +37,7 @@ def get_transforms(img_size=64):
         transforms.ToTensor(),
     ])
 
-def get_celeba_dataloaders(batch_size=64, img_size=64):
+def get_celeba_dataloaders(batch_size=64, img_size=64, num_workers=4, pin_memory=True):
     path = kagglehub.dataset_download("jessicali9530/celeba-dataset")
     
     img_dir = os.path.join(path, "img_align_celeba", "img_align_celeba")
@@ -59,8 +59,8 @@ def get_celeba_dataloaders(batch_size=64, img_size=64):
     valid_ds = CelebAKaggleDataset(valid_df, img_dir, transform)
     test_ds  = CelebAKaggleDataset(test_df,  img_dir, transform)
 
-    train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True)
-    valid_loader = DataLoader(valid_ds, batch_size=batch_size, shuffle=False)
-    test_loader  = DataLoader(test_ds,  batch_size=batch_size, shuffle=False)
+    train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True, num_workers=num_workers, pin_memory=True)
+    valid_loader = DataLoader(valid_ds, batch_size=batch_size, shuffle=False, num_workers=num_workers, pin_memory=True)
+    test_loader  = DataLoader(test_ds,  batch_size=batch_size, shuffle=False, num_workers=num_workers, pin_memory=True)
 
     return train_loader, valid_loader, test_loader

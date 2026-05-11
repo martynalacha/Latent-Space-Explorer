@@ -1,6 +1,17 @@
-kagglehub
-pandas
+# Core Deep Learning libraries
 torch
 torchvision
+torchaudio
+
+# Data processing and analysis (used in preprocessing.py and notebook)
+numpy
+pandas
 matplotlib
 pillow
+
+# Monitoring and data downloading tools
+tensorboard
+kagglehub
+
+# Interactive environment (if using Jupyter Notebook)
+ipykernel

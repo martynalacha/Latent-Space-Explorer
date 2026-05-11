@@ -1,5 +1,13 @@
 venv/
+monai_hface_accelerate/
 data/
+checkpoints/
+runs/
 __pycache__/
 *.ipynb_checkpoints/
 .DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+.env
