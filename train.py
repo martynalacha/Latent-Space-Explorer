@@ -129,7 +129,7 @@ def train(args):
     print(f"Model CVAE | latent_dim={args.latent_dim} | cond_dim={args.cond_dim} | params: {n_params:,}")
 
     optimizer = Adam(model.parameters(), lr=args.lr, weight_decay=1e-5)
-    scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=3, verbose=True)
+    scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=3)
 
     checkpoint_dir = Path(args.checkpoint_dir)
     checkpoint_dir.mkdir(parents=True, exist_ok=True)
